@@ -1,0 +1,303 @@
+<html>
+	<head>
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<link href="css/custom.css" rel="stylesheet" />
+	</head>
+	<body>
+		<!-- Javascript Modifier Menu -->
+		<nav class="navbar navbar-default" role="navigation">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">jQuery Interactivity</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="dropdown">
+		        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">SELECTORS <span class="caret"></span></a>
+		        	<ul class="dropdown-menu" id="selectors" role="menu">
+				        <li><a class="brand-color-2" id="div-selector" href="">div</a></li>
+				        <li><a class="brand-color-2" id="h4-selector"  href="">h4</a></li>
+				        <li><a class="brand-color-2" id="p-selector"   href="">p</a></li>
+				        <li><a class="brand-color-2" id="li-selector"  href="">li</a></li>
+		        	</ul>
+		        </li>
+		        <li class="dropdown">
+		        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">MODIFIERS <span class="caret"></span></a>
+		        	<ul class="dropdown-menu" id="modifiers" role="menu">
+				        <li><a class="brand-color-2" id="fadein-modifier" href="">fadeIn</a></li>
+				        <li><a class="brand-color-2" id="fadeout-modifier" href="">fadeOut</a></li>
+				        <li class="dropdown">
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Toggle Class <span class="caret"></span></a>
+				          <ul class="dropdown-menu" role="menu">
+				            <li><a class="brand-color-2" id="glow-modifier" href="#">Glow</a></li>
+				            <li><a class="brand-color-2" id="highlight-modifier" href="#">Highlight</a></li>
+				          </ul>
+				        </li>
+		        	</ul>
+		        </li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<!-- Body Content -->
+		<div class="container body-content" id="body-content">
+			<div class="row">
+				<div id="sidebar" class="col-xs-2">
+					<h4 class="brand-color-3">My Fruits</h4>
+					<ul class="brand-color-1">
+						<li><a class="brand-color-1" href="#">Watermelon</a></li>
+						<li><a class="brand-color-1" href="#">Strawberries</a></li>
+						<li><a class="brand-color-1" href="#">Grapes</a></li>
+						<li><a class="brand-color-1" href="#">Blueberries</a></li>
+					</ul>
+				</div>
+				<div class="loops col-xs-8 col-xs-offset-1">
+					<div class="row">
+						<h4 class="brand-color-3">Lorem Ipsum</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean varius condimentum mauris, vitae mollis orci ornare in. Duis dictum elementum nisl lacinia cursus. Phasellus sed imperdiet lectus. Nulla facilisi. Suspendisse potenti. Aliquam in tincidunt nunc, vitae condimentum urna. Proin vel sollicitudin urna, sed varius sapien. Aenean ornare nunc arcu, eu condimentum arcu condimentum ut. Integer egestas tincidunt tortor, at scelerisque nisl. Aenean finibus lacus ipsum, ac rutrum arcu consequat non. Donec id semper arcu. Nullam ac nisi at lacus mollis viverra. Nunc vel eros eu tellus volutpat porta rutrum ullamcorper lacus. Curabitur eget ipsum maximus, venenatis ante quis, sagittis enim.</p>
+						<p>Vivamus dignissim mi leo, sit amet fermentum arcu fringilla sed. Morbi sed ultricies augue, vel ultrices enim. Nullam mauris erat, vulputate non augue ut, accumsan rutrum nibh. Donec congue magna sit amet posuere pretium. Sed turpis est, suscipit luctus purus eu, consectetur congue lectus. Aliquam nec euismod nibh, eu dignissim odio. Integer tristique erat vitae neque condimentum tristique. In hac habitasse platea dictumst. Duis nec augue arcu.</p>
+						<p>Vestibulum porta, risus quis finibus sodales, diam orci convallis nunc, sit amet feugiat velit elit ac sapien. Nam tristique congue aliquam. Etiam neque nulla, ultrices ac laoreet vel, gravida quis risus. Donec euismod nulla sem, quis dapibus diam auctor sit amet. In sed purus risus. Fusce rhoncus fermentum fringilla. Vivamus ut accumsan leo, eu mollis diam. Curabitur condimentum leo id dui gravida, a viverra neque convallis. Maecenas commodo tristique convallis. Integer vitae faucibus nisi, vitae dapibus libero.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function() {
+				$('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+				    // Avoid following the href location when clicking
+				    event.preventDefault();
+				    // Avoid having the menu to close when clicking
+				    event.stopPropagation();
+				    // Re-add .open to parent sub-menu item
+				    if (submenuIsOpen == null)
+				    {
+					    $(this).parent().addClass('open');
+					    $(this).parent().find("ul").parent().find("li.dropdown").addClass('open');
+					    submenuIsOpen = 1;
+				    } else {
+				    	$(this).parent().removeClass('open');
+				    	$(this).parent().find("ul").parent().find("li.dropdown").removeClass('open');
+				    	submenuIsOpen = null;
+				    }
+				});
+
+				var submenuIsOpen;
+
+				// Stop the top navigation menus from closing
+				// upon selecting one of its dropdown items.
+				$('.dropdown-menu a').click(function() {
+					console.log('echo');
+					return false;
+				});
+
+				// Store all elements selected by the selection bar at the
+				// top of the page.
+				var selectedDivs = [];
+				var selectedH4s  = [];
+				var selectedPs   = [];
+				var selectedLis  = [];
+
+				//=============================================================
+				// Selectors
+				//=============================================================
+				$('#selectors a').click(function() {
+					console.log('#selector echo');
+
+					if ($(this).attr('id') == 'div-selector')
+					{
+						if ($(this).attr('class') == 'brand-color-2 enabled')
+						{
+							// Client is trying to add on-screen dotted border
+							// to selected 'divs'
+							$.map(selectedDivs, function(val) {
+								$(val).SOMETHINGHERE();
+							});
+							// end of code for new feature, part 1/2
+
+							$(this).removeClass('enabled');
+							selectedDivs = [];
+						} else {
+							$(this).addClass('enabled');
+							$('.body-content div').each(function() {
+								selectedDivs.push(this);
+							});
+
+							// Client is trying to add on-screen dotted border
+							// to selected 'divs'
+							$.map(selectedDivs, function(val) {
+								$(val).SOMETHINGHERE();
+							});
+							// end of code for new feature, part 2/2
+						}
+					}
+
+					if ($(this).attr('id') == 'h4-selector')
+					{
+						if ($(this).attr('class') == 'brand-color-2 enabled')
+						{
+							$(this).removeClass('enabled');
+							selectedH4s = [];
+						} else {
+							$(this).addClass('enabled');
+							$('.body-content h4').each(function() {
+								selectedH4s.push(this);
+							});
+						}
+
+						console.log(selectedH4s);
+					}
+
+					if ($(this).attr('id') == 'p-selector')
+					{
+						if ($(this).attr('class') == 'brand-color-2 enabled')
+						{
+							$(this).removeClass('enabled');
+							selectedPs = [];
+						} else {
+							$(this).addClass('enabled');
+							$('.body-content p').each(function() {
+								selectedPs.push(this);
+							});
+						}
+
+						console.log(selectedPs);
+					}
+
+					if ($(this).attr('id') == 'li-selector')
+					{
+						if ($(this).attr('class') = 'brand-color-2 enabled')
+						{
+							$(this).removeClass('enabled');
+							selectedLis = [];
+						} else {
+							$(this).addClass('enabled');
+							$('.body-content li').each(function() {
+								selectedLis.push(this);
+							});
+						}
+
+						console.log(selectedLis);
+					}
+
+					return false;
+				});
+
+				//=============================================================
+				// Modifiers
+				//=============================================================
+				$('#modifiers a').click(function() {
+					console.log('#modifier echo');
+
+					if ($(this).attr('id') == 'fadein-modifier')
+					{
+						if (selectedDivs != null)
+						{
+							$.map(selectedDivs, function(val) {
+								$(val).fadeIn(200);
+							});
+						}
+
+						if (selectedH4s != null)
+						{
+							$.map(selectedH4s, function(val) {
+								$(val).fadeIn(200);
+							});
+						}
+
+						if (selectedPs != null)
+						{
+							$.map(selectedPs, function(val) {
+								$(val).fadeIn(200);
+							});
+						}
+
+						if (selectedLis != null)
+						{
+							$.map(selectedLis, function(val) {
+								$(val).fadeIn(200);
+							});
+						}
+					}
+
+					if ($(this).attr('id') == 'fadeout-modifier')
+					{
+						console.log('before');
+						if (selectedDivs != null)
+						{
+							$.map(selectedDivs, function(val) {
+								$(val).fadeOut(200);
+							});
+						}
+
+						if (selectedH4s != null)
+						{
+							$.map(selectedH4s, function(val) {
+								$(val).fadeOut(200);
+							});
+						}
+
+						if (selectedPs != null)
+						{
+							$.map(selectedPs, function(val) {
+								$(val).fadeOut(200);
+							});
+						}
+
+						if (selectedLis != null)
+						{
+							$.map(selectedLis, function(val) {
+								$(val).fadeOut(200);
+							});
+						}
+					}
+
+					if ($(this).attr('id') == 'glow-modifier')
+					{
+						$.map(selectedDivs, function(val) {
+							$(val).toggleClass('glow-modifier');
+						});
+						$.map(selectedH4s, function(val) {
+							$(val).toggleClass('glow-modifier');
+						});
+						$.map(selectedPs, function(val) {
+							$(val).toggleClass('glow-modifier');
+						});
+						$.map(selectedLis, function(val) {
+							$(val).toggleClass('glow-modifier');
+						});
+					}
+
+					if ($(this).attr('id') == 'highlight-modifier')
+					{
+						$.map(selectedDivs, function(val) {
+							$(val).toggleClass('highlight-modifier');
+						});
+						$.map(selectedH4s, function(val) {
+							$(val).toggleClass('highlight-modifier');
+						});
+						$.map(selectedPs, function(val) {
+							$(val).toggleClass('highlight-modifier');
+						});
+						$.map(selectedLis, function(val) {
+							$(val).toggleClass('highlight-modifier');
+						});
+					}
+
+					return false;
+				});
+
+			});
+		</script>
+	</body>
+</html>

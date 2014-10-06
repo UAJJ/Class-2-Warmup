@@ -1,0 +1,50 @@
+html {
+	font-family: source-sans-pro,helvetica,arial,sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-size: 18px;
+}
+
+.brand-color-1-bg {
+	background-color: #f4726d !important;
+}
+
+.brand-color-1 {
+	color: #f4726d !important;
+}
+
+.brand-color-2 {
+	color: #fff;
+}
+
+#sidebar {
+	font-size: 18px;
+	color: #f4726d !important;
+}
+
+#sidebar h4 {
+	font-size: 24px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.brand-color-3 {
+	color: rgb(68, 68, 68) !important;
+}
+
+#body-content {
+	margin-top: 40px;
+}
+
+.enabled {
+	background-color: #777;
+}
+
+.highlight-modifier {
+	color: yellow !important;
+}
+
+.glow-modifier {
+	-webkit-box-shadow: 0px 0px 86px 2px rgba(223,250,18,1);
+	-moz-box-shadow: 0px 0px 86px 2px rgba(223,250,18,1);
+	box-shadow: 0px 0px 86px 2px rgba(223,250,18,1);
+}
